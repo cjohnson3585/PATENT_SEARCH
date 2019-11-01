@@ -1,0 +1,37 @@
+#10/23/19
+#ORDER OF FUNCTIONS BASED ON KEYWORDS SUPPLIED                                                                                                                        
+# 
+#1. READ A PDF IF SUPPLIED, TAKES OVERALL PRECEDENCE
+#------If the keyword PDF_TO_READ is specified, the pdf is read, tokenized, keyword frequency is performed and histogram plot produced.                                   
+#2. NEXT, RETURNS PATENT, DATA, AND PLOT FOR A SPECIFIC PATENT NUMBER IF SUPPLIED
+#------Queries PATENTSVIEW.ORG and gets data. Queries USPTO, scrapes website, and plots frequency of keywords.
+#3. SEARCHES PATENSVIEW.ORG ABSTRACTS AND TITLES FOR KEYWORDS SUPPLIED
+#------Queries PATENTSVIEW.ORG for patents with similar keywords in TITLE and ABSTRACT. Returns each patent and data, then plots up the first 5.
+#
+#
+#
+#All patents are saved in a directory called "./PATENT_DIR" in you rlocal directory. It is created when the script is first ran.
+#The saved output for each patent is <patent#>.pdf for plot of keyword frequency and <patent#>.csv for a two column output of keyword, # of occurences in patent.
+#The read_pdf function will create output files called <inputpdf>_kw_plot.pdf and <inputpdf>.csv.
+#
+#
+#
+#prefix for output log file of all scraped files (defaults to 'output.json'), each patent will have it's own two files described above. 
+PREFIX = output_search
+#
+#Number of patents to return when searching abstracts and titles
+MAX_PATENTS = 3
+#
+#
+#
+#
+#These must be in double quotes
+#-----------------------------
+#PDF_TO_READ = "NOVA_PAPER.pdf"
+#PATENT_NUMBER = "7861317"
+#
+#keywords to search in title and abstract
+#
+SEARCH_TITLE = "railroad"
+SEARCH_ABS = "car"
+#-----------------------------
