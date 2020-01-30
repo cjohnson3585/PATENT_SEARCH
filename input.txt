@@ -1,3 +1,4 @@
+#01/30/20 Updated the inut text file, only updated and using #3 module
 #10/23/19
 #ORDER OF FUNCTIONS BASED ON KEYWORDS SUPPLIED                                                                                                                        
 # 
@@ -6,13 +7,23 @@
 #2. NEXT, RETURNS PATENT, DATA, AND PLOT FOR A SPECIFIC PATENT NUMBER IF SUPPLIED
 #------Queries PATENTSVIEW.ORG and gets data. Queries USPTO, scrapes website, and plots frequency of keywords.
 #3. SEARCHES PATENSVIEW.ORG ABSTRACTS AND TITLES FOR KEYWORDS SUPPLIED
-#------Queries PATENTSVIEW.ORG for patents with similar keywords in TITLE and ABSTRACT. Returns each patent and data, then plots up the first 5.
+#------Queries PATENTSVIEW.ORG for patents with similar keywords in TITLE and ABSTRACT.
+#        First, input the (target) PATENT_NUMBER (uncomment) below and run 'python PATENT_SEARCH.py', the target kw frequency and data will created with the 'target_*' prefix attached. *Need a target file to run the recommender functions.*
+#        Second, turn off the PATENT_NUMBER variable by commenting it out.
+#        Third, change MAX_PATENTS, SEARCH_TITLE, and SEARCH_ABS. Change the prefix to anything but 'target_'.
+#        Fourth, run 'python PATENT_SEARCH.py', 'python CREATE_RECOMMENDER.py', and 'python RECOMMENDER.py'.
+#           The output will be documented in the terminal and the final output is the recommended patents based on the target patent.
+#           The first one should always be your target patent as a sanity check.
 #
+#   *Note: PATENT_SEARCH.py can be ran and all the pdfs and csv files for the returned patents can be analyzed without running the last two files.
 #
-#
-#All patents are saved in a directory called "./PATENT_DIR" in you rlocal directory. It is created when the script is first ran.
+#All patents are saved in a directory called "./PATENT_DIR" in your local directory. It is created when the script is first ran.
 #The saved output for each patent is <patent#>.pdf for plot of keyword frequency and <patent#>.csv for a two column output of keyword, # of occurences in patent.
+#If 'python CREAT_RECOMMENDER_DATA_FILE.py' is ran, and output file named './export_patents.csv' which contains the kw freq matrix of all the searched patents and the target as the first line.
 #The read_pdf function will create output files called <inputpdf>_kw_plot.pdf and <inputpdf>.csv.
+#
+#
+#
 #
 #
 #
@@ -20,7 +31,7 @@
 PREFIX = output_search
 #
 #Number of patents to return when searching abstracts and titles
-MAX_PATENTS = 3
+MAX_PATENTS = 15
 #
 #
 #
@@ -28,10 +39,10 @@ MAX_PATENTS = 3
 #These must be in double quotes
 #-----------------------------
 #PDF_TO_READ = "NOVA_PAPER.pdf"
-#PATENT_NUMBER = "7861317"
+#PATENT_NUMBER = "10239542"
 #
 #keywords to search in title and abstract
 #
 SEARCH_TITLE = "railroad"
-SEARCH_ABS = "car"
+SEARCH_ABS = "door"
 #-----------------------------
